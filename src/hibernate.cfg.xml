@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+ <!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost/regulamogi?autoReconnect=true</property>
+		<property name="default_schema">regulamogi</property>
+		<property name="connection.password">root</property>
+		<property name="connection.username">root</property>
+
+		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		<property name="show_sql">false</property>
+		<property name="format_sql">false</property>
+		<property name="hbm2ddl.auto">update</property>
+
+		<!-- Entidades -->
+		<mapping class="br.com.regulamogi.domain.EntidadeDominio" />
+		<mapping class="br.com.regulamogi.domain.Perfil" />
+		<mapping class="br.com.regulamogi.domain.Especialidade" />
+		<mapping class="br.com.regulamogi.domain.UnidadeDeSaude" />
+		<mapping class="br.com.regulamogi.domain.Conta" />
+		<mapping class="br.com.regulamogi.domain.Paciente" />
+		<mapping class="br.com.regulamogi.domain.Solicitacao" />
+
+	</session-factory>
+</hibernate-configuration>
