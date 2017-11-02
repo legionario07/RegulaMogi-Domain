@@ -12,7 +12,7 @@
 		<property name="connection.username">root</property>
 
 		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
-		<property name="show_sql">false</property>
+		<property name="show_sql">true</property>
 		<property name="format_sql">false</property>
 		<property name="hbm2ddl.auto">update</property>
 
@@ -24,6 +24,7 @@
 		<mapping class="br.com.regulamogi.domain.Conta" />
 		<mapping class="br.com.regulamogi.domain.Paciente" />
 		<mapping class="br.com.regulamogi.domain.Solicitacao" />
+		<mapping class="br.com.regulamogi.domain.Telefone" />
 
 	</session-factory>
 </hibernate-configuration>

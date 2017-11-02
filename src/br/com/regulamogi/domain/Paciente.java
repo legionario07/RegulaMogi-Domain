@@ -13,6 +13,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.Fetch;
+
 /**
  * Representa o paciente
  * @author PauLinHo
@@ -28,14 +30,17 @@ public class Paciente extends EntidadeDominio{
 	@Column(unique = true)
 	private String SIS;
 	private String nome;
-	private String celular;
-	private String telefone;
 	@Column(nullable = false) @Temporal(TemporalType.TIMESTAMP)
 	private Calendar lastLogin;
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	private Conta conta;
 	@ElementCollection(fetch=FetchType.EAGER)
+	@Fetch(org.hibernate.annotations.FetchMode.SUBSELECT)
 	private List<Solicitacao> solicitacoes;
+	@ElementCollection(fetch=FetchType.EAGER)
+	@Fetch(org.hibernate.annotations.FetchMode.SUBSELECT)
+	private List<Telefone> telefones;
+	
 	
 	public Paciente(String SIS){
 		this();
@@ -50,6 +55,7 @@ public class Paciente extends EntidadeDominio{
 	public Paciente(){
 		conta = new Conta();
 		solicitacoes= new ArrayList<>();
+		telefones = new ArrayList<>();
 	}
 	
 	public String getSIS() {
@@ -63,12 +69,6 @@ public class Paciente extends EntidadeDominio{
 	}
 	public void setNome(String nome) {
 		this.nome = nome.toUpperCase();
-	}
-	public String getCelular() {
-		return celular;
-	}
-	public void setCelular(String celular) {
-		this.celular = celular;
 	}
 	public Conta getConta() {
 		return conta;
@@ -91,20 +91,20 @@ public class Paciente extends EntidadeDominio{
 		this.lastLogin = lastLogin;
 	}
 
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
 	public List<Solicitacao> getSolicitacoes() {
 		return solicitacoes;
 	}
 
 	public void setSolicitacoes(List<Solicitacao> solicitacoes) {
 		this.solicitacoes = solicitacoes;
+	}
+
+	public List<Telefone> getTelefones() {
+		return telefones;
+	}
+
+	public void setTelefones(List<Telefone> telefones) {
+		this.telefones = telefones;
 	}
 
 }
