@@ -29,14 +29,15 @@ public class Solicitacao extends EntidadeDominio{
 	private Calendar dataConsulta;
 	@Column(nullable = false) @Temporal(TemporalType.DATE)
 	private Calendar dataEnvio;
+	@Column(nullable = false)
 	private String numeroMemorando;
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private UnidadeDeSaude unidadeDeSaude;
 	@Enumerated(EnumType.STRING)
 	private PrioridadeType prioridade;
 	@Enumerated(EnumType.STRING)
 	private StatusType status;
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Especialidade especialidade;
 	
 	public Solicitacao(Long id){

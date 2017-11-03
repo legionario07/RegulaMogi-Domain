@@ -28,18 +28,18 @@ public class Paciente extends EntidadeDominio{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Column(unique = true)
+	@Column(unique = true, nullable = false)
 	private String SIS;
+	@Column(nullable = false)
 	private String nome;
 	@Column(nullable = false) @Temporal(TemporalType.TIMESTAMP)
 	private Calendar lastLogin;
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Conta conta;
 	@ElementCollection(fetch=FetchType.EAGER)
 	@Fetch(FetchMode.SELECT)
 	private List<Solicitacao> solicitacoes;
 	@ElementCollection(fetch=FetchType.EAGER)
-	@Fetch(FetchMode.SELECT)
 	private List<Telefone> telefones;
 	
 	

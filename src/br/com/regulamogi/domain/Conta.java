@@ -18,10 +18,10 @@ public class Conta extends EntidadeDominio{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Column(unique = true)
+	@Column(unique = true, nullable = false)
 	private String login;
 	private String senha;
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Perfil perfil;
 	
 	public Conta(){

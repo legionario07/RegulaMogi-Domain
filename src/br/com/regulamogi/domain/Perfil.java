@@ -16,7 +16,7 @@ public class Perfil extends EntidadeDominio{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Column(unique = true)
+	@Column(unique = true, nullable =false)
 	private String perfil;
 	
 	public Perfil(Long id, String perfil){

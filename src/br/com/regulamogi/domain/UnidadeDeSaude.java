@@ -20,7 +20,7 @@ public class UnidadeDeSaude extends EntidadeDominio{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Column(unique = true)
+	@Column(unique = true, nullable = false)
 	private String nomeUnidade;
 	@ElementCollection(fetch=FetchType.EAGER)
 	private List<Conta> contas;	
