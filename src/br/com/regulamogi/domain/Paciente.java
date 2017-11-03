@@ -14,6 +14,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 /**
  * Representa o paciente
@@ -35,10 +36,10 @@ public class Paciente extends EntidadeDominio{
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	private Conta conta;
 	@ElementCollection(fetch=FetchType.EAGER)
-	@Fetch(org.hibernate.annotations.FetchMode.SUBSELECT)
+	@Fetch(FetchMode.SELECT)
 	private List<Solicitacao> solicitacoes;
 	@ElementCollection(fetch=FetchType.EAGER)
-	@Fetch(org.hibernate.annotations.FetchMode.SUBSELECT)
+	@Fetch(FetchMode.SELECT)
 	private List<Telefone> telefones;
 	
 	

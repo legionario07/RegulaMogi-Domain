@@ -27,6 +27,7 @@ public class HibernateUtil {
 
 		return sessao.openSession();
 	}
+	
 
 
 }
