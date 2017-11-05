@@ -8,6 +8,8 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 
+import br.com.regulamogi.utils.RemoveAcentoUtil;
+
 /**
  * Representa a Unidade De Saude que realiza o Cadastro ou atualiza as solicitações
  * @author PauLinHo
@@ -43,7 +45,7 @@ public class UnidadeDeSaude extends EntidadeDominio{
 		return nomeUnidade;
 	}
 	public void setNomeUnidade(String nomeUnidade) {
-		this.nomeUnidade = nomeUnidade.toUpperCase();
+		this.nomeUnidade = RemoveAcentoUtil.semAcento(nomeUnidade).toUpperCase();
 	}
 	public List<Conta> getContas() {
 		return contas;

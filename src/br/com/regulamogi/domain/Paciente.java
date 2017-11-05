@@ -16,6 +16,8 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import br.com.regulamogi.utils.RemoveAcentoUtil;
+
 /**
  * Representa o paciente
  * @author PauLinHo
@@ -69,7 +71,7 @@ public class Paciente extends EntidadeDominio{
 		return nome;
 	}
 	public void setNome(String nome) {
-		this.nome = nome.toUpperCase();
+		this.nome = RemoveAcentoUtil.semAcento(nome).toUpperCase();
 	}
 	public Conta getConta() {
 		return conta;

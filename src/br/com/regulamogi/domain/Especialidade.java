@@ -3,6 +3,8 @@ package br.com.regulamogi.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
+import br.com.regulamogi.utils.RemoveAcentoUtil;
+
 /**
  * Representa a Especialidade Solicitada pelo Médico
  * @author PauLinHo
@@ -38,7 +40,7 @@ public class Especialidade extends EntidadeDominio{
 	}
 
 	public void setEspecialidade(String especialidade) {
-		this.especialidade = especialidade.toUpperCase();
+		this.especialidade = RemoveAcentoUtil.semAcento(especialidade).toUpperCase();
 	}
 	
 	

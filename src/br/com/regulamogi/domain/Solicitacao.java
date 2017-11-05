@@ -12,6 +12,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.com.regulamogi.utils.RemoveAcentoUtil;
+
 /**
  * Representa a Solicitação, guia solicitada pelo Medico ao Paciente
  * @author PauLinHo
@@ -108,7 +110,7 @@ public class Solicitacao extends EntidadeDominio{
 	}
 
 	public void setNomePaciente(String nomePaciente) {
-		this.nomePaciente = nomePaciente;
+		this.nomePaciente = RemoveAcentoUtil.semAcento(nomePaciente).toUpperCase();
 	}
 
 	

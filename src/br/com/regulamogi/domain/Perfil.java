@@ -3,6 +3,8 @@ package br.com.regulamogi.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
+import br.com.regulamogi.utils.RemoveAcentoUtil;
+
 /**
  * Representa o perfil de acesso ex(UnidadeDeSaude, DAT, GERENTE, PAciente)
  * @author PauLinHo
@@ -37,7 +39,7 @@ public class Perfil extends EntidadeDominio{
 		return perfil;
 	}
 	public void setPerfil(String perfil) {
-		this.perfil = perfil.toUpperCase();
+		this.perfil = RemoveAcentoUtil.semAcento(perfil).toUpperCase();
 	}
 	
 	@Override
