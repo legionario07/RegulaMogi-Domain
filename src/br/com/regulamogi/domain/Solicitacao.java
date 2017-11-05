@@ -39,6 +39,8 @@ public class Solicitacao extends EntidadeDominio{
 	private StatusType status;
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Especialidade especialidade;
+	private String numeroSIS;
+	private String nomePaciente;
 	
 	public Solicitacao(Long id){
 		this();
@@ -92,6 +94,23 @@ public class Solicitacao extends EntidadeDominio{
 	public void setEspecialidade(Especialidade especialidade) {
 		this.especialidade = especialidade;
 	}
+
+	public String getNumeroSIS() {
+		return numeroSIS;
+	}
+
+	public void setNumeroSIS(String numeroSIS) {
+		this.numeroSIS = numeroSIS;
+	}
+
+	public String getNomePaciente() {
+		return nomePaciente;
+	}
+
+	public void setNomePaciente(String nomePaciente) {
+		this.nomePaciente = nomePaciente;
+	}
+
 	
 
 }
