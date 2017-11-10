@@ -7,15 +7,15 @@ public class ConnectionFactory {
 
 	private static Connection con = null;
 
-	private static String url = "jdbc:mysql://localhost/regulamogi?autoReconnect=true";
-	private static String usuario = "root";
-	private static String senha = "root";
-        
-        
-        
-//        private static String url = "jdbc:mysql://localhost:3306/ecommercevendas?useSSL=false";
+//	private static String url = "jdbc:mysql://localhost/regulamogi?autoReconnect=true";
 //	private static String usuario = "root";
 //	private static String senha = "root";
+        
+        
+        
+        private static String url = "jdbc:mysql://omniatechnology.com.br:3306/omnitsge_regulamogi?useSSL=false";
+	private static String usuario = "omnitsge_root";
+	private static String senha = "brasilwork07";
 //        
         
 

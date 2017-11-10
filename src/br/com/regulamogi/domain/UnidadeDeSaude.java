@@ -1,12 +1,10 @@
 package br.com.regulamogi.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
 
 import br.com.regulamogi.utils.RemoveAcentoUtil;
 
@@ -24,8 +22,18 @@ public class UnidadeDeSaude extends EntidadeDominio{
 	private static final long serialVersionUID = 1L;
 	@Column(unique = true, nullable = false)
 	private String nomeUnidade;
-	@ElementCollection(fetch=FetchType.EAGER)
-	private List<Conta> contas;	
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private Conta conta;	
+
+	
+
+	public Conta getConta() {
+		return conta;
+	}
+
+	public void setConta(Conta conta) {
+		this.conta = conta;
+	}
 
 	public UnidadeDeSaude(Long id, String nomeUnidade){
 		this(id);
@@ -38,7 +46,7 @@ public class UnidadeDeSaude extends EntidadeDominio{
 	}
 	
 	public UnidadeDeSaude(){
-		contas = new ArrayList<>();
+		conta = new Conta();
 	}
 	
 	public String getNomeUnidade() {
@@ -47,18 +55,35 @@ public class UnidadeDeSaude extends EntidadeDominio{
 	public void setNomeUnidade(String nomeUnidade) {
 		this.nomeUnidade = RemoveAcentoUtil.semAcento(nomeUnidade).toUpperCase();
 	}
-	public List<Conta> getContas() {
-		return contas;
-	}
-
-	public void setContas(List<Conta> contas) {
-		this.contas = contas;
-	}
-
 
 	@Override
 	public String toString() {
 		return getNomeUnidade();
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((nomeUnidade == null) ? 0 : nomeUnidade.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		UnidadeDeSaude other = (UnidadeDeSaude) obj;
+		if (nomeUnidade == null) {
+			if (other.nomeUnidade != null)
+				return false;
+		} else if (!nomeUnidade.equals(other.nomeUnidade))
+			return false;
+		return true;
 	}
 
 	

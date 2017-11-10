@@ -6,13 +6,12 @@
 <hibernate-configuration>
 	<session-factory>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="connection.url">jdbc:mysql://localhost/regulamogi?autoReconnect=true</property>
-		<property name="default_schema">regulamogi</property>
-		<property name="connection.password">root</property>
-		<property name="connection.username">root</property>
+		<property name="connection.url">jdbc:mysql://omniatechnology.com.br:3306/omnitsge_regulamogi?useSSL=false</property>
+		<property name="connection.password">brasilwork07</property>
+		<property name="connection.username">omnitsge_root</property>
 
 		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
-		<property name="show_sql">true</property>
+		<property name="show_sql">false</property>
 		<property name="format_sql">false</property>
 		<property name="hbm2ddl.auto">update</property>
 
